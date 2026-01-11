@@ -4,7 +4,7 @@ const ImageSection: React.FC = () => {
   return (
     <section className="my-8 flex justify-center">
       <div className="relative bg-white p-6 rounded-3xl shadow-2xl border-4 border-green-200 overflow-hidden max-w-2xl w-full">
-        {/* <a href='https://postimg.cc/8sVVqswt' target='_blank'><img src='https://i.postimg.cc/8sVVqswt/Gemini-Generated-Image-4h501h4h501h4h50.png' border='0' alt='Gemini-Generated-Image-4h501h4h501h4h50'></a> */}
+        {/* Link ảnh bạn vừa tạo nhét vào đây */}
         <img 
           src="https://i.postimg.cc/8sVVqswt/Gemini-Generated-Image-4h501h4h501h4h50.png" 
           alt="Hình ảnh bạn trăn" 
