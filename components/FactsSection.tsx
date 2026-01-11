@@ -1,55 +1,61 @@
+import React from 'react';
 
-import React, { useState, useEffect } from 'react';
-import { getPythonFacts } from '../services/gemini';
-import { PythonFact } from '../types';
-
-const FactsSection: React.FC = () => {
-  const [facts, setFacts] = useState<PythonFact[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    const fetchFacts = async () => {
-      try {
-        const data = await getPythonFacts();
-        setFacts(data);
-      } catch (err) {
-        console.error("Failed to fetch facts", err);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchFacts();
-  }, []);
-
-  if (isLoading) {
-    return (
-      <div className="py-20 text-center text-green-600">
-        <p className="animate-pulse">Đang tìm những sự thật thú vị...</p>
-      </div>
-    );
-  }
-
+const PythonFactSection: React.FC = () => {
   return (
-    <section id="facts" className="py-16 px-4">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold text-green-800 text-center mb-10">Bé Có Biết Không?</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {facts.map((fact, idx) => (
-            <div 
-              key={idx} 
-              className="bg-white p-8 rounded-3xl shadow-md border-b-4 border-green-400 hover:transform hover:-translate-y-2 transition-transform duration-300"
-            >
-              <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-4 text-2xl">
-                💡
-              </div>
-              <h3 className="text-xl font-bold text-green-700 mb-3">{fact.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{fact.content}</p>
-            </div>
-          ))}
+    <div className="bg-[#f0f9f4] py-12 px-4">
+      {/* Phần ảnh con trăn - Giữ nguyên link bạn muốn */}
+      <div className="flex justify-center mb-16">
+        <div className="max-w-3xl w-full">
+          <img 
+            src="https://i.postimg.cc/gX9Rd3T9/Gemini-Generated-Image-rrj6a1rrj6a1rrj6.png" 
+            alt="Cấu tạo con trăn" 
+            className="w-full h-auto rounded-3xl"
+          />
         </div>
       </div>
-    </section>
+
+      {/* Phần "Em có biết" - Tái tạo đúng theo mẫu image_156123.png */}
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        {/* Thẻ 1 */}
+        <div className="bg-white p-8 rounded-[2.5rem] shadow-sm border-b-[8px] border-[#52d681] flex flex-col items-center text-center">
+          <div className="bg-yellow-100 w-12 h-12 rounded-full flex items-center justify-center mb-6 text-2xl">
+            💡
+          </div>
+          <h3 className="text-[#1a7a44] text-xl font-bold mb-4">Trăn không có nọc độc</h3>
+          <p className="text-gray-600 leading-relaxed">
+            Khác với một số loài rắn đáng sợ, trăn hoàn toàn không có nọc độc đâu bé ơi! 
+            Chúng thường rất hiền lành và chỉ thích nằm cuộn tròn một chỗ thôi.
+          </p>
+        </div>
+
+        {/* Thẻ 2 */}
+        <div className="bg-white p-8 rounded-[2.5rem] shadow-sm border-b-[8px] border-[#52d681] flex flex-col items-center text-center">
+          <div className="bg-yellow-100 w-12 h-12 rounded-full flex items-center justify-center mb-6 text-2xl">
+            💡
+          </div>
+          <h3 className="text-[#1a7a44] text-xl font-bold mb-4">Những vận động viên bơi lội</h3>
+          <p className="text-gray-600 leading-relaxed">
+            Bé có biết không? Trăn không chỉ biết bò trên mặt đất mà còn bơi dưới nước cực giỏi nữa đấy. 
+            Chúng có thể nín thở rất lâu khi ở dưới nước.
+          </p>
+        </div>
+
+        {/* Thẻ 3 */}
+        <div className="bg-white p-8 rounded-[2.5rem] shadow-sm border-b-[8px] border-[#52d681] flex flex-col items-center text-center">
+          <div className="bg-yellow-100 w-12 h-12 rounded-full flex items-center justify-center mb-6 text-2xl">
+            💡
+          </div>
+          <h3 className="text-[#1a7a44] text-xl font-bold mb-4">Chiếc bụng siêu co giãn</h3>
+          <p className="text-gray-600 leading-relaxed">
+            Trăn có một chiếc miệng và cái bụng rất đặc biệt, có thể mở rộng ra để nuốt những món ăn 
+            to hơn cả cái đầu của mình. Thật là kỳ diệu phải không nào!
+          </p>
+        </div>
+
+      </div>
+    </div>
   );
 };
 
-export default FactsSection;
+export default PythonFactSection;
