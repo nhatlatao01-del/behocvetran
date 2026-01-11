@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"] # GitHub sẽ chạy mỗi khi bạn lưu code vào nhánh main
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          # Đã xóa dòng cache: 'npm' ở đây để tránh lỗi Lock file
 
       - name: Install dependencies
         run: npm install
